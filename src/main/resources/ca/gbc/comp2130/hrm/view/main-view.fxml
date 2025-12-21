@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ca.gbc.comp2130.hrm.controller.MainController">
+
+    <top>
+        <!-- Buttons for Status in Main Controller -->
+        <ToolBar>
+            <Button text="Save All" onAction="#handleSaveAll"/>
+            <Separator orientation="VERTICAL"/>
+            <Button text="Exit" onAction="#handleExit"/>
+            <Separator orientation="VERTICAL"/>
+            <Label text="Status:"/>
+            <Label fx:id="statusLabel" text="Ready"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <!-- Main Program Sections -->
+        <TabPane>
+            <Tab text="Employees" closable="false">
+                <content>
+                    <fx:include source="employee-view.fxml"/>
+                </content>
+            </Tab>
+
+            <Tab text="Payroll" closable="false">
+                <content>
+                    <fx:include source="payroll-view.fxml"/>
+                </content>
+            </Tab>
+
+            <Tab text="Reports" closable="false">
+                <fx:include source="report-view.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+
+</BorderPane>

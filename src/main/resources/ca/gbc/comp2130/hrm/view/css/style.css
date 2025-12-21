@@ -1,0 +1,11 @@
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.table-view {
+    -fx-table-cell-border-color: transparent;
+}
+
+.tab-pane .tab-header-area {
+    -fx-padding: 5;
+}

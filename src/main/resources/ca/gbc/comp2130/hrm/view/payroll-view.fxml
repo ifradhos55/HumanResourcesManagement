@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ca.gbc.comp2130.hrm.controller.PayrollController">
+
+    <top>
+        <GridPane hgap="10" vgap="8">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Employee:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="employeeCombo" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Start (YYYY-MM-DD):"
+                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="periodStartField"
+                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="End (YYYY-MM-DD):"
+                   GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <TextField fx:id="periodEndField"
+                       GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+            <Label text="Hours Worked:"
+                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="hoursWorkedField"
+                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Overtime Hours:"
+                   GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+            <TextField fx:id="overtimeHoursField"
+                       GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+            <Label text="Bonus:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="bonusField"
+                       text="0.0"
+                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+    </top>
+
+    <center>
+        <TableView fx:id="payrollTable">
+            <columns>
+                <TableColumn fx:id="empNameColumn" text="Employee" prefWidth="180"/>
+                <TableColumn fx:id="periodColumn" text="Period" prefWidth="200"/>
+                <TableColumn fx:id="grossColumn" text="Gross" prefWidth="120"/>
+                <TableColumn fx:id="netColumn" text="Net" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Calculate Payroll" onAction="#handleCalculatePayroll"/>
+                <Button text="Clear" onAction="#handleClear"/>
+            </HBox>
+
+            <Label fx:id="summaryLabel" text="No calculation yet."/>
+        </VBox>
+    </bottom>
+
+</BorderPane>

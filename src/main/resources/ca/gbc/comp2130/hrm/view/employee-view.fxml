@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ca.gbc.comp2130.hrm.controller.EmployeeController">
+
+    <top>
+        <GridPane hgap="10" vgap="8">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <children>
+                <Label text="ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="idField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="First Name:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="firstNameField" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="Last Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="lastNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Department:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="departmentCombo" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                <Label text="Hourly Rate:"
+                       GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="hourlyRateField"
+                           GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Hours/Week:"
+                       GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                <TextField fx:id="hoursPerWeekField"
+                           GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                <Label text="Hire Date (YYYY-MM-DD):"
+                       GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="hireDateField"
+                           GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Active:"
+                       GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+                <CheckBox fx:id="activeCheckBox"
+                          GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+            </children>
+        </GridPane>
+    </top>
+
+    <center>
+        <TableView fx:id="employeeTable">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="180"/>
+                <TableColumn fx:id="departmentColumn" text="Department" prefWidth="120"/>
+                <TableColumn fx:id="rateColumn" text="Hourly Rate" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Button text="Add" onAction="#handleAddEmployee"/>
+            <Button text="Update" onAction="#handleUpdateEmployee"/>
+            <Button text="Delete" onAction="#handleDeleteEmployee"/>
+            <Button text="Clear" onAction="#handleClear"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

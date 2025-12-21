@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ca.gbc.comp2130.hrm.controller.ReportController">
+
+    <center>
+        <VBox spacing="15" fillWidth="true">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <TableView fx:id="reportTable" VBox.vgrow="NEVER">
+                <columns>
+                    <TableColumn fx:id="employeeColumn" text="Employee" prefWidth="180"/>
+                    <TableColumn fx:id="periodColumn" text="Period" prefWidth="200"/>
+                    <TableColumn fx:id="grossColumn" text="Gross" prefWidth="120"/>
+                    <TableColumn fx:id="netColumn" text="Net" prefWidth="120"/>
+                </columns>
+            </TableView>
+
+            <TitledPane text="Income Trend" expanded="true" collapsible="false" VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox VBox.vgrow="ALWAYS">
+                        <LineChart fx:id="incomeChart" VBox.vgrow="ALWAYS">
+                            <xAxis>
+                                <CategoryAxis label="Period"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Net Income ($)"/>
+                            </yAxis>
+                        </LineChart>
+                    </VBox>
+                </content>
+            </TitledPane>
+
+            <TitledPane text="Department Summary" expanded="true" collapsible="false" VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox VBox.vgrow="ALWAYS">
+                        <BarChart fx:id="departmentChart" VBox.vgrow="ALWAYS">
+                            <xAxis>
+                                <CategoryAxis label="Department"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Total Payroll ($)"/>
+                            </yAxis>
+                        </BarChart>
+                    </VBox>
+                </content>
+            </TitledPane>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Button text="Export Payroll Report" onAction="#handleExportReport"/>
+            <Button text="Open CSV File" onAction="#handleOpenReport"/>
+
+            <ProgressBar fx:id="exportProgress" prefWidth="200"/>
+            <Label fx:id="exportStatusLabel"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
