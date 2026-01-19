@@ -1,11 +1,3 @@
-/*
- *Group 40:
- *Luis Tello 101580076
- *John Sebastian Laquis 101591588
- *Basira Zaki 101565577
- *Ifrad Hossain 101587843
- */
-
 package ca.gbc.comp2130.hrm.controller;
 
 import ca.gbc.comp2130.hrm.model.HRMRepository;
